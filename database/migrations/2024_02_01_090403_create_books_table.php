@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('category');
             $table->text('description');
             $table->decimal('price', 4, 2);
-            $table->timestamps();
         });
     }
 

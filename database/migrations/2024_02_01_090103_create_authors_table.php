@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('nationality');
             $table->char('gender');
             $table->integer('age');
-            $table->timestamps();
         });
     }
 
