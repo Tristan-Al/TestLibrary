@@ -14,13 +14,11 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->unsignedBigInteger('author_id');
+            $table->foreignId('author_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('category');
             $table->text('description');
-            $table->decimal('price', 8, 2);
+            $table->decimal('price', 4, 2);
             $table->timestamps();
-
-            $table->foreign('author_id')->references('id')->on('authors');
         });
     }
 
