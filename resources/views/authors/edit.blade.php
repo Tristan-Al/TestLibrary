@@ -17,31 +17,31 @@
             </div>
 
             <div class="mb-4">
-                <label for="surnames" class="block text-sm font-medium text-gray-600">Apellido</label>
+                <label for="surnames" class="block text-sm font-medium text-gray-600">Surnames</label>
                 <input type="text" name="surnames" id="surnames" value="{{ $author->surnames }}"
                     class="mt-1 p-2 w-full border rounded-md">
             </div>
 
             <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-600">Nombre</label>
+                <label for="name" class="block text-sm font-medium text-gray-600">Name</label>
                 <input type="text" name="name" id="name" value="{{ $author->name }}"
                     class="mt-1 p-2 w-full border rounded-md">
             </div>
 
             <div class="mb-4">
-                <label for="nationality" class="block text-sm font-medium text-gray-600">Nacionalidad</label>
+                <label for="nationality" class="block text-sm font-medium text-gray-600">Nationality</label>
                 <input type="text" name="nationality" id="nationality" value="{{ $author->nationality }}"
                     class="mt-1 p-2 w-full border rounded-md">
             </div>
 
             <div class="mb-4">
-                <label for="gender" class="block text-sm font-medium text-gray-600">Género</label>
+                <label for="gender" class="block text-sm font-medium text-gray-600">Gender</label>
                 <input type="text" name="gender" id="gender" value="{{ $author->gender }}"
                     class="mt-1 p-2 w-full border rounded-md">
             </div>
 
             <div class="mb-4">
-                <label for="age" class="block text-sm font-medium text-gray-600">Edad</label>
+                <label for="age" class="block text-sm font-medium text-gray-600">Age</label>
                 <input type="text" name="age" id="age" value="{{ $author->age }}"
                     class="mt-1 p-2 w-full border rounded-md">
             </div>

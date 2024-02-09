@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,5 @@ Route::view('/', 'home')->name('home');
 
 // With one line creates all the routes for the CRUD methods.
 Route::resource('authors', AuthorController::class)->except(['show']);
+
+Route::resource('books', BookController::class)->except(['show']);
