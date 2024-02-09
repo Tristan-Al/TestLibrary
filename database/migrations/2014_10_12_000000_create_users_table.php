@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('username');
             $table->string('password');
-            $table->string('phone');
-            $table->date('delivery_date');
+            $table->string('phone')->nullable();
+            $table->date('created_at');
         });
     }
 

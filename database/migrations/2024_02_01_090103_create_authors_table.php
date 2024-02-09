@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('surnames');
             $table->string('name');
-            $table->string('nationality');
-            $table->char('gender');
-            $table->integer('age');
+            $table->string('nationality')->nullable();
+            $table->char('gender')->nullable();
+            $table->integer('age')->nullable();
         });
     }
 
