@@ -24,12 +24,12 @@
                 <tbody>
                     @foreach ($books as $book)
                         <tr>
-                            <td class="py-2 px-4 border-b">{{ $book['id'] }}</td>
-                            <td class="py-2 px-4 border-b">{{ $book['title'] }}</td>
-                            <td class="py-2 px-4 border-b">{{ $book['author_id'] }}</td>
-                            <td class="py-2 px-4 border-b">{{ $book['category'] }}</td>
-                            <td class="py-2 px-4 border-b">{{ $book['description'] }}</td>
-                            <td class="py-2 px-4 border-b">{{ $book['price'] }}</td>
+                            <td class="py-2 px-4 border-b">{{ $book->id }}</td>
+                            <td class="py-2 px-4 border-b">{{ $book->title }}</td>
+                            <td class="py-2 px-4 border-b">{{ $book->author_id }}</td>
+                            <td class="py-2 px-4 border-b">{{ $book->category ?? 'N/A' }}</td>
+                            <td class="py-2 px-4 border-b">{{ $book->description ?? 'N/A' }}</td>
+                            <td class="py-2 px-4 border-b">{{ $book->price }}</td>
                             <td class="py-2 px-4 border-b">
                                 <a href="{{ route('books.edit', ['book' => $book->id]) }}"
                                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>

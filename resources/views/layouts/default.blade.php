@@ -23,7 +23,7 @@
                     <li><a href="{{ route('authors.index') }}" class="text-white hover:text-gray-400">Authors</a></li>
                     <li><a href="{{ route('books.index') }}" class="text-white hover:text-gray-400">Books</a></li>
                     <li><a href="{{ route('users.index') }}" class="text-white hover:text-gray-400">Users</a></li>
-                    <li><a href="#" class="text-white hover:text-gray-400">Rentals</a></li>
+                    <li><a href="{{ route('rentals.index') }}" class="text-white hover:text-gray-400">Rentals</a></li>
                 </ul>
             </nav>
         </div>

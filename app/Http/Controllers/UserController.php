@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -14,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(7);
+        $users = User::with('roles')->paginate(7);
 
         return view('users.index', compact('users'));
     }
@@ -24,7 +25,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $roles = Role::all();
+        return view('users.create', compact('roles'));
     }
 
     /**
@@ -32,17 +34,18 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        // New instance of User
-        $user = new User();
+        // Validate and create user
+        $user = User::create(
+            [
+                'username' => $request->input('username'),
+                'phone' => $request->input('phone'),
+                'password' => Hash::make($request->input('password')),
+                'created_at' => now()
+            ]
+        );
 
-        // Set form values to user model
-        $user->username = $request->input('username');
-        $user->password = Hash::make($request->input('password'));
-        $user->phone = $request->input('phone');
-        $user->created_at = now();
-
-        // Save user in db
-        $user->save();
+        // Syncronize user roles with selected form inputs
+        $user->roles()->sync($request->input('roles', []));
 
         return redirect()->route('users.index');
     }
@@ -52,7 +55,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        $roles = Role::all();
+        return view('users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -69,10 +73,13 @@ class UserController extends Controller
             $user->password = Hash::make($request->input('password'));
         }
 
+        $user->roles()->sync($request->input('roles', []));
+
         // Save user changes
         $user->save();
 
-        return redirect()->route('users.edit', ['user' => $user]);
+        return redirect()->route('users.edit', $user)
+            ->with('success', 'User updated successfully');
     }
 
     /**

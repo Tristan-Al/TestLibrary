@@ -23,12 +23,12 @@
                 <tbody>
                     @foreach ($authors as $author)
                         <tr>
-                            <td class="py-2 px-4 border-b">{{ $author['id'] }}</td>
-                            <td class="py-2 px-4 border-b">{{ $author['surnames'] }}</td>
-                            <td class="py-2 px-4 border-b">{{ $author['name'] }}</td>
-                            <td class="py-2 px-4 border-b">{{ $author['nationality'] }}</td>
-                            <td class="py-2 px-4 border-b">{{ $author['gender'] }}</td>
-                            <td class="py-2 px-4 border-b">{{ $author['age'] }}</td>
+                            <td class="py-2 px-4 border-b">{{ $author->id }}</td>
+                            <td class="py-2 px-4 border-b">{{ $author->surnames }}</td>
+                            <td class="py-2 px-4 border-b">{{ $author->name }}</td>
+                            <td class="py-2 px-4 border-b">{{ $author->nationality ?? 'N/A' }}</td>
+                            <td class="py-2 px-4 border-b">{{ $author->gender ?? 'N/A' }}</td>
+                            <td class="py-2 px-4 border-b">{{ $author->age ?? 'N/A' }}</td>
                             <td class="py-2 px-4 border-b">
                                 <a href="{{ route('authors.edit', ['author' => $author->id]) }}"
                                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>

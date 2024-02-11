@@ -15,7 +15,7 @@
                         <th class="py-2 px-4 border-b">ID</th>
                         <th class="py-2 px-4 border-b">User Name</th>
                         <th class="py-2 px-4 border-b">Phone</th>
-                        <th class="py-2 px-4 border-b">Admin</th>
+                        <th class="py-2 px-4 border-b">Roles</th>
                         <th class="py-2 px-4 border-b" colspan="2">Actions</th>
                     </tr>
                 </thead>
@@ -24,8 +24,19 @@
                         <tr>
                             <td class="py-2 px-4 border-b">{{ $user->id }}</td>
                             <td class="py-2 px-4 border-b">{{ $user->username }}</td>
-                            <td class="py-2 px-4 border-b">{{ $user->phone }}</td>
-                            <td class="py-2 px-4 border-b">#</td>
+                            <td class="py-2 px-4 border-b">{{ $user->phone ?? 'N/A' }}</td>
+                            <td class="py-2 px-4 border-b">
+                                @if (count($user->roles) > 0)
+                                    @foreach ($user->roles as $role)
+                                        {{ $role->rolename }}
+                                        @if (!$loop->last)
+                                            ,
+                                        @endif
+                                    @endforeach
+                                @else
+                                    No roles
+                                @endif
+                            </td>
                             <td class="py-2 px-4 border-b">
                                 <a href="{{ route('users.edit', ['user' => $user->id]) }}"
                                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
