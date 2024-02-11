@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\RentalController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,5 @@ Route::resource('authors', AuthorController::class)->except(['show']);
 Route::resource('books', BookController::class)->except(['show']);
 
 Route::resource('users', UserController::class)->except(['show']);
+
+Route::resource('rentals', RentalController::class)->except(['show']);
