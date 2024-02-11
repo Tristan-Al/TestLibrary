@@ -52,7 +52,7 @@
                 {{ $books->links() }}
             </div>
         @else
-            <p> No authors available. </p>
+            <p> No books available. </p>
         @endif
     </div>
 @endsection

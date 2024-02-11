@@ -29,7 +29,7 @@ class User extends Authenticatable
         'username',
         'password',
         'phone',
-        'delivery_date'
+        'created_at'
     ];
 
     /**
@@ -48,7 +48,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'password' => 'hashed',
-        'delivery_date' => 'datetime'
+        'created_at' => 'datetime'
     ];
 
     // Define the many-to-many relationship with Roles
