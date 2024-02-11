@@ -73,6 +73,7 @@ class UserController extends Controller
             $user->password = Hash::make($request->input('password'));
         }
 
+        // Syncronize roles with form selected roles
         $user->roles()->sync($request->input('roles', []));
 
         // Save user changes

@@ -12,9 +12,10 @@
                 class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600">Explore Authors</a>
             <a href="{{ route('books.index') }}"
                 class="ml-4 bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-600">Discover Books</a>
-            <a href="{{-- route('users.index') --}}"
+            <a href="{{ route('users.index') }}"
                 class="ml-4 bg-yellow-500 text-white px-6 py-3 rounded-md hover:bg-yellow-600">Browse Users</a>
-            <a href="{{-- route('rentals.index') --}}" class="ml-4 bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600">Check
+            <a href="{{ route('rentals.index') }}"
+                class="ml-4 bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600">Check
                 Rentals</a>
         </div>
     </div>

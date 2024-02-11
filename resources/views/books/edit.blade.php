@@ -16,6 +16,12 @@
             </div>
         @endif
 
+        @if (session('success'))
+            <div class="bg-green-200 text-green-800 p-4 mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <form action="{{ route('books.update', ['book' => $book->id]) }}" method="POST">
             @method('PUT')
             @csrf

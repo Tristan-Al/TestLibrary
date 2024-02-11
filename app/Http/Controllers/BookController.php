@@ -39,32 +39,27 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified book.
      */
-    public function edit(string $id)
+    public function edit(Book $book)
     {
-        $book = Book::findOrFail($id);
-
         return view('books.edit', compact('book'));
     }
 
     /**
      * Update the specified book in storage.
      */
-    public function update(BookRequest $request, string $id): RedirectResponse
+    public function update(BookRequest $request, Book $book)
     {
-        $book = Book::findOrFail($id);
-
         $book->update($request->validated());
 
-        return redirect()->route('books.edit', ['book' => $book->id]);
+        return redirect()->route('books.edit', $book->id)
+            ->with('success', 'Book updated successfully');
     }
 
     /**
      * Remove the specified book from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Book $book)
     {
-        $book = Book::findOrFail($id);
-
         $book->delete();
 
         return redirect()->route('books.index');

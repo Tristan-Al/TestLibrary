@@ -6,6 +6,12 @@
     <div class="max-w-2xl mx-auto px-5">
         <h1 class="text-2xl font-bold my-4">Edit Author</h1>
 
+        @if (session('success'))
+            <div class="bg-green-200 text-green-800 p-4 mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <form action="{{ route('authors.update', ['author' => $author->id]) }}" method="POST">
             @method('PUT')
             @csrf

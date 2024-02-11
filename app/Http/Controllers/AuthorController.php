@@ -36,29 +36,27 @@ class AuthorController extends Controller
     /**
      * Show the form for editing the specified author.
      */
-    public function edit($id)
+    public function edit(Author $author)
     {
-        $author = Author::findOrFail($id);
         return view('authors.edit', compact('author'));
     }
 
     /**
      * Update the specified author in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Author $author)
     {
-        $author = Author::findOrFail($id);
         $author->update($request->all());
 
-        return redirect()->route('authors.edit', ['author' => $author->id]);
+        return redirect()->route('authors.edit', $author)
+            ->with('success', 'Author updated successfully');
     }
 
     /**
      * Remove the specified author from storage.
      */
-    public function destroy($id)
+    public function destroy(Author $author)
     {
-        $author = Author::findOrFail($id);
         $author->delete();
 
         return redirect()->route('authors.index');
